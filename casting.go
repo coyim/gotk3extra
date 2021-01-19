@@ -4,6 +4,7 @@ package gotk3extra
 // #include <stdlib.h>
 // #include <gtk/gtk.h>
 // #include "casting.go.h"
+// #include "widget.go.h"
 // #cgo CFLAGS: -Wno-deprecated-declarations
 import "C"
 import (
@@ -52,6 +53,11 @@ func CastInternal(className string, obj *glib.Object) (interface{}, error) {
 	return rv[0].Interface(), nil
 }
 
+// CastX takes a native GObject and casts it to the appropriate Go struct.
+func CastX(c unsafe.Pointer) (glib.IObject, error) {
+	return Cast(C.toGObject(c))
+}
+
 // Cast takes a native GObject and casts it to the appropriate Go struct.
 func Cast(c *C.GObject) (glib.IObject, error) {
 	var (
@@ -74,6 +80,11 @@ func Cast(c *C.GObject) (glib.IObject, error) {
 
 func goString(cstr *C.gchar) string {
 	return C.GoString((*C.char)(cstr))
+}
+
+// CastWidgetX takes a native GtkWidget and casts it to the appropriate Go struct.
+func CastWidgetX(c unsafe.Pointer) (gtk.IWidget, error) {
+	return CastWidget(C.toGtkWidget(c))
 }
 
 // CastWidget takes a native GtkWidget and casts it to the appropriate Go struct.
