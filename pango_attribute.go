@@ -27,7 +27,7 @@ func (v *PangoAttribute) SetStartIndex(v2 uint) {
 	v.pangoAttribute.start_index = C.guint(v2)
 }
 
-// SetEndIndex	the index of the end of the attribute application in the text.
+// SetEndIndex the index of the end of the attribute application in the text.
 func (v *PangoAttribute) SetEndIndex(v2 uint) {
 	v.pangoAttribute.end_index = C.guint(v2)
 }
