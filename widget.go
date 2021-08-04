@@ -13,6 +13,15 @@ import (
 	"github.com/gotk3/gotk3/gtk"
 )
 
+// WrapWidget can be used to create a GTK widget instance from the given object.
+func WrapWidget(obj *glib.Object) *gtk.Widget {
+	if obj == nil {
+		return nil
+	}
+
+	return &gtk.Widget{glib.InitiallyUnowned{obj}}
+}
+
 func nativeWidget(v *gtk.Widget) *C.GtkWidget {
 	if v == nil || v.GObject == nil {
 		return nil
