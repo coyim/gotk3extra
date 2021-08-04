@@ -48,6 +48,10 @@ func GetWidgetBuildableName(v *gtk.Widget) (string, error) {
 	return GetBuildableName(v.Object)
 }
 
+// GetWidgetTemplateChild is a wrapper around gtk_widget_get_template_child().
+// This will only report children which were previously declared with
+// gtk_widget_class_bind_template_child_full() or one of its variants.
+// In other case, it will return an error.
 func GetWidgetTemplateChild(vv gtk.IWidget, name string) (*glib.Object, error) {
 	if vv == nil {
 		return nil, nilPtrErr
