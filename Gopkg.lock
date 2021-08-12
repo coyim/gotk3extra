@@ -3,7 +3,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:b0dacb80b3d2ba2502a008f40b0ff5a9bf4e7244045e7da98b96e34ac3ca1955"
+  digest = "1:9b6c2679569ae754358a25633083c4bf1728d2801465576cdf8482e55774b238"
   name = "github.com/gotk3/gotk3"
   packages = [
     "cairo",
@@ -16,7 +16,7 @@
     "pango",
   ]
   pruneopts = "UT"
-  revision = "535985c916d0f5c51415a89fb334e3443aacd32f"
+  revision = "474ea38ab56ba00a98d7dc912ace29402c7527b9"
 
 [solve-meta]
   analyzer-name = "dep"
